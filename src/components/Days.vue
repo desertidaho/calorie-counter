@@ -1,16 +1,38 @@
 <template>
-  <div class></div>
+  <div class="days">
+    <ul v-for="day in allDays" :key="day.id">
+      <li @click="setActive(day)">
+        <router-link :to="{name: 'details'}">{{day.date}}</router-link>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "",
+  name: "days",
   props: [],
   data() {
     return {};
   },
-  computed: {},
-  methods: {},
+  computed: {
+    allDays() {
+      return this.$store.state.days;
+    }
+  },
+  methods: {
+    setActive(day) {
+      debugger;
+      this.$store.dispatch("setActive", day);
+    }
+  },
   components: {}
 };
 </script>
+
+<style>
+li {
+  list-style: none;
+  cursor: pointer;
+}
+</style>
