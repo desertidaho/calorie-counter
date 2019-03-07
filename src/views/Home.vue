@@ -7,7 +7,7 @@
 
 <script>
   // @ is an alias to /src
-  import Calorie from '@/components/Calorie.vue'
+  import Details from '@/components/Details.vue'
 
   export default {
     name: 'home',
