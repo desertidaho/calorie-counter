@@ -11,10 +11,10 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
-    }, {
+    } /* {
       path: '/details',
       name: 'details',
       component: Details
-    }
+    } */
   ]
 })
