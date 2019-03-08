@@ -2,7 +2,7 @@
   <div class="days">
     <ul v-for="day in allDays" :key="day.id">
       <li @click="setActive(day)">
-        <router-link :to="{name: 'details'}">{{day.date}}</router-link>
+        <router-link :to="{name: 'details', params:{id: day._id}}">{{day.date}}</router-link>
       </li>
     </ul>
   </div>
@@ -22,7 +22,6 @@ export default {
   },
   methods: {
     setActive(day) {
-      debugger;
       this.$store.dispatch("setActive", day);
     }
   },

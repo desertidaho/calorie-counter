@@ -20,7 +20,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     days: [],
-    activeDay: {}
+    activeDay: {},
+    foodDetails: []
   },
   mutations: {
     setDays(state, data) {
@@ -28,6 +29,9 @@ export default new Vuex.Store({
     },
     setActiveDay(state, day) {
       state.activeDay = day
+    },
+    foodDetails(state, data) {
+      state.foodDetails = data
     }
   },
   actions: {
@@ -48,6 +52,24 @@ export default new Vuex.Store({
     },
     setActive({ commit, dispatch }, day) {
       commit('setActiveDay', day)
+    },
+    getFoods({ commit, dispatch }, newFood) {
+      _api.post('', newFood)
+        .then(res => {
+          commit('foodDetails', res.data.foods)
+        })
+    },
+    addFoodDetailsToSandbox({ commit, dispatch }, payload) {
+      _sandbox.post(`${this.state.activeDay._id}/foods`, payload)
+        .then(res => {
+        })
+    },
+    foodDetails({ commit, dispatch }, logId) {
+      console.log('bingo')
+      _sandbox.get(logId)
+        .then(res => {
+          commit('setActiveDay', res.data.data)
+        })
     }
 
   }
