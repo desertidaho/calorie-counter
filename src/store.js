@@ -65,7 +65,6 @@ export default new Vuex.Store({
         })
     },
     foodDetails({ commit, dispatch }, logId) {
-      console.log('bingo')
       _sandbox.get(logId)
         .then(res => {
           commit('setActiveDay', res.data.data)
@@ -73,5 +72,4 @@ export default new Vuex.Store({
     }
 
   }
-
 })

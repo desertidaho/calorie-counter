@@ -1,28 +1,23 @@
 <template>
-  <div class="foodDetails">
-    <ul @click="addToSandbox">
-      <li>Type food: {{newFood.food_name || newFood.name}}</li>
-      <li>Calories: {{newFood.nf_calories || newFood.calories}}</li>
-      <li>Fat: {{newFood.nf_total_fat || newFood.fat}}</li>
-      <li>Carbs: {{newFood.nf_total_carbohydrate || newFood.carbohydrates}}</li>
-      <li>Protein: {{newFood.nf_protein|| newFood.protein}}</li>
-      <li>Serving quantity: {{newFood.serving_qty|| newFood.servingQty}}</li>
-      <li>Serving unit: {{newFood.serving_unit || newFood.servingUnit}}</li>
-      <img :src="newFood.imgUrl || newFood.photo.highres" alt="">
-    </ul>
+  <div class="foodDetails card col-2 d-flex mx-3 my-3 shadow" @click="addToSandbox">
+    <img :src="newFood.imgUrl || newFood.photo.highres" alt="" class="img-top img-fluid">
+    <div class="card-body">
+      <p>Type food: {{newFood.food_name || newFood.name}}</p>
+      <p>Calories: {{newFood.nf_calories || newFood.calories}}</p>
+      <p>Fat: {{newFood.nf_total_fat || newFood.fat}}</p>
+      <p>Carbs: {{newFood.nf_total_carbohydrate || newFood.carbohydrates}}</p>
+      <p>Protein: {{newFood.nf_protein|| newFood.protein}}</p>
+      <p>Serving quantity: {{newFood.serving_qty|| newFood.servingQty}}</p>
+      <p>Serving unit: {{newFood.serving_unit || newFood.servingUnit}}</p>
+    </div>
   </div>
 </template>
+
 
 <script>
   export default {
     name: "foodDetails",
-    mounted() {
-
-    },
     props: ['newFood'],
-    data() {
-      return {};
-    },
     computed: {},
     methods: {
       addToSandbox() {
@@ -35,7 +30,7 @@
 
 <style>
   img {
-    width: 20vw;
-    height: auto;
+    width: 100vw;
+    height: 100vh;
   }
 </style>
